@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+
+    <title>CalmClass</title>
+
+    <link rel="icon" href="./img/logo-projeto-escolar.png">
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/personalizado.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        body {
+            scrollbar-width: 3px;
+        }
+    </style>
+</head>
+
+<body> 
+    <div id="app" style="height: 100%;">
+        <div class="view-main">
+            <div class="navbar">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Pesquisar cursos...">
+                    <button onclick="searchCourses()">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <img src="./img/logo-projeto-escolar.png" alt="CalmClass Mascote" class="logo">
+                    <div class="title">CalmClass</div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="course-block" id="course-block">
+                    <!-- Card de Matemática -->
+                    <div class="course-card">
+                        <button onclick="window.location.href='./materiashtml/matematica.html'">
+                            <img src="./img/materias/matematica.png" alt="Matemática" class="course-image">
+                        </button>
+                        <div class="course-info">
+                            <button onclick="window.location.href='./materiashtml/matematica.html'">Matemática</button>
+                            <p>Módulos: 12</p>
+                        </div>
+                    </div>
+            
+                    <!-- Card de Português -->
+                    <div class="course-card">
+                        <button onclick="window.location.href='./portugues.html'">
+                            <img src="./img/materias/portugues.png" alt="Português" class="course-image">
+                        </button>
+                        <div class="course-info">
+                            <button onclick="window.location.href='./portugues.html'">Português</button>
+                            <p>Módulos: 10</p>
+                        </div>
+                    </div>
+            
+                    <!-- Card de Ciências -->
+                    <div class="course-card">
+                        <button onclick="window.location.href='./ciencias.html'">
+                            <img src="./img/materias/cientista.png" alt="Ciências" class="course-image">
+                        </button>
+                        <div class="course-info">
+                            <button onclick="window.location.href='./ciencias.html'">Ciências</button>
+                            <p>Módulos: 8</p>
+                        </div>
+                    </div>
+            
+                    <!-- Card de História -->
+                    <div class="course-card">
+                        <button onclick="window.location.href='./historia.html'">
+                            <img src="./img/materias/historia.png" alt="História" class="course-image">
+                        </button>
+                        <div class="course-info">
+                            <button onclick="window.location.href='./historia.html'">História</button>
+                            <p>Módulos: 9</p>
+                        </div>
+                    </div>
+            
+                    <!-- Card de Geografia -->
+                    <div class="course-card">
+                        <button onclick="window.location.href='./geografia.html'">
+                            <img src="./img/materias/geografia.png" alt="Geografia" class="course-image">
+                        </button>
+                        <div class="course-info">
+                            <button onclick="window.location.href='./geografia.html'">Geografia</button>
+                            <p>Módulos: 7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+            <div class="toolbar toolbar-bottom">
+                <div class="toolbar-inner">
+                    <a href="./index.html" id="inicio-tab" class="tab-link active">
+                        <i class="mdi mdi-home"></i>
+                        <span>Início</span>
+                    </a>
+                    <a href="./perfil.html" id="perfil-tab" class="tab-link">
+                        <i class="mdi mdi-account"></i>
+                        <span>Perfil</span>
+                    </a>
+                    <a href="./configuracao.html" id="configuracoes-tab" class="tab-link">
+                        <i class="mdi mdi-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+ 
+    
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script src="cordova.js"></script>
+    <script src="./js/script.js"></script>
+
+    <script>
+
+
+
+
+
+
+
+
+        function removeAccents(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function searchCourses() {
+            const input = removeAccents(document.getElementById('search-input').value.toLowerCase());
+            const courses = document.querySelectorAll('.course-card');
+
+            if (!input) {
+                courses.forEach(course => course.style.display = 'block');
+                return;
+            }
+
+            courses.forEach(course => {
+                const courseText = removeAccents(course.textContent.toLowerCase());
+                if (courseText.includes(input)) {
+                    course.style.display = 'block';
+                } else {
+                    course.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.page-content').style.overflowY = 'scroll';
+        });
+    </script>
+</body>
+</html>

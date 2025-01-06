@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>Configurações - CalmClass</title>
+    
+    <link rel="icon" href="./img/logo-projeto-escolar.png">
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/personalizado.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/configuracao.css">
+   
+</head>
+<body>
+    <div id="app" style="height: 100%;">
+        <div class="view-main">
+            <div class="navbar">
+                <div class="navbar-bg"></div> 
+                <div class="navbar-inner">
+                    <img src="./img/logo-projeto-escolar.png" alt="CalmClass Mascote" class="logo">
+                    <div class="title">Configurações</div>
+                </div>
+            </div>
+
+            <div class="page-content">
+                <div class="config-container">
+                    <h1 class="config-title">Configurações</h1>
+                    <div class="config-option">
+                        <span>Notificações</span>
+                        <div class="toggle-switch" id="notif-toggle"></div>
+                        <p id="notif-message" class="status-message"></p>
+                    </div>
+                    <div class="config-option">
+                        <span>Modo Escuro</span>
+                        <div class="toggle-switch" id="darkmode-toggle"></div>
+                        <p id="darkmode-message" class="status-message"></p> 
+                    </div>
+                    
+                    <div class="config-option">
+                        <span>Idioma</span>
+                        <select id="language-select" class="config-select">
+                            <option value="pt">Português</option>
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-container">
+                <h2 class="contact-title">Entre em Contato</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Digite sua mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar</button>
+                    <p id="statusMessage" class="status-message"></p>
+                </form>
+            </div>
+            
+
+            
+
+
+
+            <div class="toolbar toolbar-bottom">
+                <div class="toolbar-inner">
+                    <a href="./index.html" id="inicio-tab" class="tab-link">
+                        <i class="mdi mdi-home"></i>
+                        <span>Início</span>
+                    </a>
+                    <a href="./perfil.html" id="perfil-tab" class="tab-link">
+                        <i class="mdi mdi-account"></i>
+                        <span>Perfil</span>
+                    </a>
+                    <a href="./configuracao.html" id="configuracoes-tab" class="tab-link active">
+                        <i class="mdi mdi-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+
+    
+
+    
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    const notifToggle = document.getElementById('notif-toggle');
+    const notifMessage = document.getElementById('notif-message');
+    
+    notifToggle.addEventListener('click', () => {
+        notifToggle.classList.toggle('active');
+        if (notifToggle.classList.contains('active')) {
+            notifMessage.textContent = "Notificações Ativadas";
+            notifMessage.classList.add('on');
+            notifMessage.classList.remove('off');
+        } else {
+            notifMessage.textContent = "Notificações Desativadas";
+            notifMessage.classList.add('off');
+            notifMessage.classList.remove('on');
+        }
+        
+        notifMessage.classList.add('active');
+
+       
+        setTimeout(() => {
+            notifMessage.classList.add('exit');
+            setTimeout(() => {
+                notifMessage.classList.remove('active', 'exit');
+            }, 300);
+        }, 3000);
+    });
+
+    const darkmodeToggle = document.getElementById('darkmode-toggle');
+    const darkmodeMessage = document.getElementById('darkmode-message');
+    
+    darkmodeToggle.addEventListener('click', () => {
+        darkmodeToggle.classList.toggle('active');
+        document.body.classList.toggle('dark-mode');
+        if (darkmodeToggle.classList.contains('active')) {
+            darkmodeMessage.textContent = "Modo Escuro Ativado";
+            darkmodeMessage.classList.add('on');
+            darkmodeMessage.classList.remove('off');
+        } else {
+            darkmodeMessage.textContent = "Modo Escuro Desativado";
+            darkmodeMessage.classList.add('off');
+            darkmodeMessage.classList.remove('on');
+        }
+        
+        darkmodeMessage.classList.add('active'); 
+
+        setTimeout(() => {
+            darkmodeMessage.classList.add('exit');
+            setTimeout(() => {
+                darkmodeMessage.classList.remove('active', 'exit');
+            }, 300); 
+        }, 3000);
+    });
+});
+
+
+
+
+
+
+   
+
+
+
+            document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    const statusMessage = document.getElementById('statusMessage');
+    statusMessage.style.display = 'block';
+
+    if (name && email && message) {
+        statusMessage.textContent = "Mensagem enviada com sucesso! Obrigado por entrar em contato.";
+        statusMessage.className = 'status-message success';
+    } else {
+        statusMessage.textContent = "Por favor, preencha todos os campos corretamente.";
+        statusMessage.className = 'status-message error';
+    }
+});
+
+    </script>
+    <script src="./js/script.js"></script>
+</body>
+</html>

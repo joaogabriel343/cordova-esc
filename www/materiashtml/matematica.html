@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>CalmClass Matemática - 5º Ano</title>
+    <link rel="icon" href="../img/logo-projeto-escolar.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/cssmaterias/matematica.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="../img/logo-projeto-escolar.png" alt="Logo CalmClass" class="logo">
+            <h2>CalmClass Matemática</h2>
+            <div class="header-text">
+                <h1>Estudos de Matemática - 5º Ano</h1>
+                <p>Bem-vindo ao portal de estudos de Matemática do 5º ano. Aprenda com vídeos e quizzes interativos!</p>
+            </div>
+        </div>
+    </header>     
+    
+    <section id="videos">
+        <h2>Vídeos Explicativos</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/EXEMPLO" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/EXEMPLO2" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+    
+    <section id="materia">
+        <h2>Conteúdo Explicativo</h2>
+        <div class="text-container">
+            <p>Na Matemática do 5º ano, aprendemos sobre...</p>
+            <p>Vamos estudar tópicos como:</p>
+            <ul>
+                <li>Adição e subtração de números naturais</li>
+                <li>Multiplicação e divisão</li>
+                <li>Geometria</li>
+                <li>Frações</li>
+                <li>Medidas de comprimento</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="quiz">
+        <h2>Quiz de Matemática</h2>
+        <div id="quiz-container">
+            <p>Responda às questões abaixo para desbloquear os níveis!</p>
+            <div id="nivel-1">
+                <h3>Nível 1</h3>
+                <div class="quiz-question">
+                    <p>Qual é a soma de 25 + 15?</p>
+                    <button onclick="checkAnswer(1, 'A')">A) 40</button>
+                    <button onclick="checkAnswer(1, 'B')">B) 50</button>
+                    <button onclick="checkAnswer(1, 'C')">C) 60</button>
+                </div>
+                <div class="quiz-question">
+                    <p>Quanto é 40 - 10?</p>
+                    <button onclick="checkAnswer(1, 'A')">A) 25</button>
+                    <button onclick="checkAnswer(1, 'B')">B) 30</button>
+                    <button onclick="checkAnswer(1, 'C')">C) 35</button>
+                </div>
+                <div class="quiz-question">
+                    <p>Qual é o resultado de 9 x 3?</p>
+                    <button onclick="checkAnswer(1, 'A')">A) 24</button>
+                    <button onclick="checkAnswer(1, 'B')">B) 27</button>
+                    <button onclick="checkAnswer(1, 'C')">C) 21</button>
+                </div>
+            </div>
+            <div id="nivel-2" style="display: none;">
+                <h3>Nível 2</h3>
+                <div class="quiz-question">
+                    <p>Quanto é 12²?</p>
+                    <button onclick="checkAnswer(2, 'A')">A) 144</button>
+                    <button onclick="checkAnswer(2, 'B')">B) 132</button>
+                    <button onclick="checkAnswer(2, 'C')">C) 120</button>
+                </div>
+                <div class="quiz-question">
+                    <p>Qual é a raiz quadrada de 169?</p>
+                    <button onclick="checkAnswer(2, 'A')">A) 12</button>
+                    <button onclick="checkAnswer(2, 'B')">B) 13</button>
+                    <button onclick="checkAnswer(2, 'C')">C) 14</button>
+                </div>
+                <div class="quiz-question">
+                    <p>O que é 15! (fatorial de 15)?</p>
+                    <button onclick="checkAnswer(2, 'A')">A) 1.307674368e12</button>
+                    <button onclick="checkAnswer(2, 'B')">B) 2.203855376e10</button>
+                    <button onclick="checkAnswer(2, 'C')">C) 3.105299034e13</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    </script>
+    
+    <script src="../js/matematica.js"></script>
+</body>
+</html>

@@ -1,0 +1,585 @@
+
+
+
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4c93af;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    z-index: -1;
+}
+
+.navbar-inner .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 1.5s ease-in-out;
+}
+
+.navbar-inner .title {
+    font-size: 0;
+    opacity: 0;
+    color: white;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: all 1.5s ease-in-out;
+}
+.title{
+    font-size: 10px;
+}
+.navbar-loaded .logo {
+    top: 50%;
+    left: 20px;
+    transform: translate(0, -50%);
+}
+
+.navbar-loaded .title {
+    font-size: 24px;
+    opacity: 1;
+    margin-left: 80px;
+    position: center;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 100px;
+    }
+    .navbar-inner .title {
+        font-size: 20px;
+    } 
+    .navbar-inner .logo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.navbar .search-bar {
+    position: relative;
+    z-index: 100;
+    color: white;
+}
+
+
+.search-bar {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 190px;
+}
+
+.search-bar input {
+    width: 900%;
+    padding: 10px;
+    border: 2px solid #1976d2;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar button i {
+    font-size: 18px;
+}
+
+.search-bar button:hover {
+    background: #1976d2;
+}
+.course-card button {
+    all: unset; 
+    cursor: pointer; 
+    display: inline-block;
+    color: inherit;
+    text-align: center;
+    width: 80%; 
+    border-radius: 8px;
+    padding: 0;
+    margin: 0;
+}
+
+.course-info button {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background: none;
+    border: none;
+    text-decoration: underline; 
+    cursor: pointer;
+}
+
+.course-card button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.gamification-section{
+    padding: 0px;
+}
+.page-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 80px;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: calc(800px - 160px);
+}
+
+.page-content button{
+   text-decoration: none;
+   align-items: center;
+   margin-left: 15px;
+}
+
+
+
+.main-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.start-button {
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.start-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.course-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.course-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.course-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 3px solid #2575fc;
+}
+
+.course-info {
+    padding: 10px;
+}
+
+.course-info h3 {
+    margin: 10px 0 5px;
+    color: #2575fc;
+    font-size: 18px;
+}
+
+.course-info p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .course-card {
+        font-size: 16px;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .course-card {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+
+.gamification-section {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gamification-section h3 {
+    margin-top: 0;
+    color : #1976d2;
+    font-size: 24px;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.rewards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.reward-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+    transition: transform 0.3s ease;
+}
+
+.reward-item:hover {
+    transform: translateY(-3px);
+}
+
+.toolbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.toolbar-inner {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 600px;
+}
+.toolbar {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.toolbar-inner {
+    display: flex;
+    justify-content: space-evenly; 
+    width: 100%;
+    max-width: 600px;
+}
+
+.tab-link {
+    flex: 1;
+    text-align: center; 
+}
+
+.tab-link {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.tab-link.active {
+    color: white;
+}
+ 
+.tab-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.tab-link:hover {
+    color: white;
+}
+
+
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+html, body {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4c93af;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    z-index: -1;
+}
+
+
+
+/* Para dispositivos pequenos, como celulares de 4,5 a 5,5 polegadas */
+@media (max-width: 480px) {
+    .start-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .course-card {
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .gamification-section h3 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .reward-item {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .navbar {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+}
+
+/* Para dispositivos médios, como celulares maiores (5,5 a 6,5 polegadas) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .start-button {
+        font-size: 18px;
+        padding: 12px 30px;
+    }
+
+    .course-card {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .gamification-section h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .reward-item {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .navbar {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    body {
+        font-size: 16px;
+    }
+}
+
+/* Para tablets menores (7 a 8 polegadas) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .start-button {
+        font-size: 20px;
+        padding: 15px 35px;
+    }
+
+    .course-card {
+        padding: 25px;
+        font-size: 16px;
+    }
+
+    .gamification-section h3 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .reward-item {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .navbar {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    body {
+        font-size: 18px;
+    }
+}
+
+/* Para tablets maiores, como iPads (10 a 11 polegadas) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .start-button {
+        font-size: 22px;
+        padding: 18px 40px;
+    }
+
+    .course-card {
+        padding: 30px;
+        font-size: 18px;
+    }
+
+    .gamification-section h3 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .reward-item {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .container {
+        padding: 25px;
+    }
+
+    .navbar {
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    body {
+        font-size: 20px;
+    }
+}

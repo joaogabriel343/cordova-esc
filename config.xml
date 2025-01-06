@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="br.com.curso.CalmClass" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CalmClass</name>
+    <description>CalmClass o Aprendizado na palma da sua Mão</description>
+    <author email="calmdev3@gmail.com" href="#">
+        João Gabriel Ceo / Talysson Moura Ceo / Gustavo Marcelino Ceo
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <icon src="./perfil2.png"/>
+    <content src="./www/login.html" />
+</widget>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    
+    <title>Perfil CalmClass</title>
+    
+    <link rel="icon" href="./img/logo-projeto-escolar.png">
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/personalizado.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./css/perfil.css">
+ 
+</head>
+
+<body>
+    <div id="app">
+        <div class="view-main">
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <img src="./img/logo-projeto-escolar.png" alt="CalmClass Mascote" class="logo">
+                    <div class="title">Perfil CalmClass</div>
+                </div>
+            </div>
+
+            <div class="login-container">
+                <h2>Perfil CalmClass</h2>
+                <form action="update_profile.php" method="POST">
+                    <div class="input-container">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="date">Data de Nascimento</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="gender">Gênero</label>
+                        <select id="gender" name="gender" required>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                    </div>
+                    <div class="input-container">
+                        <label for="ethnicity">Série/Ano Escolar</label>
+                        <select id="ethnicity" name="ethnicity" required>
+                            <option value="branco">1° Ano</option>
+                            <option value="negro">2° Ano</option>
+                            <option value="pardo">3° Ano</option>
+                            <option value="indigena">4° Ano</option>
+                            <option value="asiatico">5° Ano</option>
+                            <option value="outro">1° Ano</option>
+                        </select>
+                    </div>
+                    <button type="submit" name="Update">Salvar Alterações</button>
+                </form>
+            </div>
+            <div class="toolbar toolbar-bottom">
+                <div class="toolbar-inner">
+                    <a href="./index.html" class="tab-link">
+                        <i class="mdi mdi-home"></i>
+                        <span>Início</span>
+                    </a>
+                    <a href="./perfil.html" class="tab-link active">
+                        <i class="mdi mdi-account"></i>
+                        <span>Perfil</span>
+                    </a>
+                    <a href="./configuracao.html" class="tab-link">
+                        <i class="mdi mdi-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+
+    </script>
+
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script src="cordova.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

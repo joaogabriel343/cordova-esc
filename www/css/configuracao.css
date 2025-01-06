@@ -1,0 +1,435 @@
+:root {
+    --primary-color: #2196f3;
+    --secondary-color: #1976d2;
+    --white: #ffffff;
+    --gray-light: #fafafa;
+    --gray-dark: #333;
+    --gray-border: #ddd;
+    --success: #4CAF50;
+    --error: #f44336;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease-in-out;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow-y: auto; /* Permite rolar a tela verticalmente */
+  }
+#app{
+    background-color: white;
+}
+.page-content {
+    margin: 0;
+    padding: 0;
+    font-size: 3px;
+    align-items: center;
+    background-color: white;
+}
+
+.page-content {
+    max-height: 80vh; 
+    overflow-y: auto; 
+    padding: 20px;
+    background-color: var(--white);
+}
+
+.page-content .config-title {
+    color: #2196f3;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.config-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--gray-light);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.config-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--gray-border);
+}
+
+.config-option:last-child {
+    border-bottom: none;
+}
+
+.config-option span {
+    font-size: 18px;
+    color: var(--gray-dark);
+}
+
+.toggle-switch {
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.toggle-switch:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 19px;
+    height: 19px;
+    background-color: var(--white);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.toggle-switch.active {
+    background-color: var(--success);
+}
+
+.toggle-switch.active:before {
+    transform: translateX(25px);
+}
+
+.config-select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid var(--gray-border);
+    background-color: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.config-select:hover {
+    border-color: var(--primary-color);
+}
+
+.status-message {
+    display: none;
+    font-size: 14px;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.status-message.active {
+    display: block;
+    opacity: 1;
+    animation: slide-in 0.5s forwards;
+}
+
+.status-message.exit {
+    animation: slide-out 0.5s forwards;
+}
+
+.status-message.on {
+    background-color: var(--success);
+    color: var(--white);
+}
+
+.status-message.off {
+    background-color: var(--error);
+    color: var(--white);
+}
+
+@keyframes slide-in {
+    0% {
+        top: -50px;
+        opacity: 0;
+    }
+    100% {
+        top: 20px;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        top: 20px;
+        opacity: 1;
+    }
+    100% {
+        top: -50px;
+        opacity: 0;
+    }
+}
+
+
+.tab-link {
+    flex: 1;
+    text-align: center; 
+}
+
+.tab-link {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.tab-link.active {
+    color: white;
+}
+
+.tab-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.tab-link:hover {
+    color: white;
+}
+
+/* Estilos gerais para o formulário de contato */
+.contact-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 90%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .contact-title {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  button[type="submit"] {
+    background-color: #6A5ACD;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #5a4ea1;
+  }
+  
+  .status-message {
+    font-size: 14px;
+    color: #4CAF50;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  /* Responsividade para dispositivos móveis */
+  @media (max-width: 768px) {
+    .contact-container {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .contact-title {
+      font-size: 20px;
+    }
+  
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+      font-size: 16px;
+    }
+  
+    button[type="submit"] {
+      font-size: 18px;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contact-container {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    padding: 20px;
+    background-color: var(--gray-light);
+    border: 1px solid var(--gray-border);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+.contact-container {
+    margin-top: 20px;
+}
+
+
+.contact-title {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: var(--gray-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid var(--gray-border);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--white);
+    color: var(--gray-dark);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.btn-submit {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    background-color: var(--secondary-color);
+}
+
+.status-message {
+    display: none;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.status-message.success {
+    color: var(--success);
+}
+
+.status-message.error {
+    color: var(--error);
+}

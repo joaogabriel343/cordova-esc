@@ -1,0 +1,140 @@
+/* Resetando estilos e criando base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #6a5acd, #2196f3);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 5px solid #fff;
+}
+
+header .logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+header .header-text h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+header .header-text p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Seções */
+section {
+    margin: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+#videos iframe {
+    width: 48%;
+    height: 300px;
+    margin: 1%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#videos iframe:hover {
+    transform: scale(1.05);
+}
+
+/* Quiz */
+#quiz-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.quiz-question {
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #2196f3;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0d8bf2;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Níveis */
+#nivel-1, #nivel-2 {
+    display: block;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+#nivel-2 {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    #videos iframe {
+        width: 100%;
+    }
+
+    #quiz-container {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    margin-right: 0px; 
+}
+
+h2 {
+    margin: 10px; 
+    font-size: 24px;
+}
+

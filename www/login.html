@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#2196f3">
+    <title>Login CalmClass</title>
+
+    <link rel="icon" href="./img/logo-projeto-escolar.png">
+    <link rel="stylesheet" href="lib/framework7-bundle.min.css">
+    <link rel="stylesheet" href="css/personalizado.css">
+    <link rel="stylesheet" href="css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="view-main">
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <img src="./img/logo-projeto-escolar.png" alt="CalmClass Mascote" class="logo">
+                    <div class="title">CalmClass</div>
+                </div>
+            </div>
+            <div class="login-container">
+                <h1>Login CalmClass</h1>
+
+                <form action="http://localhost:5000/api/login" method="POST">
+                    <div class="input-container">
+                        <label for="username">Usuário</label>
+                        <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+                    </div>
+                    <div class="input-container">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+                    </div>
+                    <button type="submit">Entrar</button>
+                </form>                
+                <p class="register">
+                    Não tem uma conta? 
+                    <button class="btn-cadastro" onclick="window.location.href='./cadastro.html'">
+                        Cadastre-se
+                    </button>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const navbar = document.querySelector('.navbar');
+            setTimeout(() => {
+                navbar.classList.add('navbar-loaded');
+            }, 200);
+        });
+    </script>
+
+    <script type="text/javascript" src="lib/framework7-bundle.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/routes.js"></script>
+    <script src="cordova.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
