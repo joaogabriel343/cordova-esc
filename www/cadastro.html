@@ -26,10 +26,9 @@
                     <img src="./img/logo-projeto-escolar.png" alt="CalmClass Mascote" class="logo">
                     <div class="title">CalmClass</div>
                 </div>
-            </div>
+            </div> 
             <div class="login-container">
                 <h1>Cadastro CalmClass</h1>
-                <form action="http://localhost:5000/api/cadastro" method="POST">
                     <div class="input-container">
                         <label for="username">Usuário</label>
                         <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
@@ -46,8 +45,7 @@
                         <label for="password">Senha</label>
                         <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
                     </div>
-                    <button type="submit">Cadastrar</button>
-                </form>                
+                    <button type="submit" onclick="window.location.href='./login.html'">Cadastrar</button>            
                     <p class="register">
                        Já tem uma conta?
                         <button class="btn-cadastro" onclick="window.location.href='./login.html'">
