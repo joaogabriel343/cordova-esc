@@ -1,36 +1,46 @@
 const express = require('express');
 const sql = require('mssql/msnodesqlv8');  // Use apenas este
-
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+// Configuração do banco de dados
 const dbConfig = {
     server: 'DESKTOP-DIFT32I\\SQLEXPRESS',
     database: 'CalmClassDB',
-    driver: 'msnodesqlv8',  // Aqui também
+    driver: 'msnodesqlv8',  
     options: {
         trustedConnection: true // Usa autenticação do Windows
     }
 };
 
-const path = require('path');
+// Configuração do express para servir arquivos estáticos (CSS, JS, imagens)
+app.use(express.static(path.join(__dirname, '..', '..', 'www')));
 
 // Serve a página de cadastro
-app.get('/', (req, res) => {
+app.get('/cadastro.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../cadastro.html'));
+});
+
+app.get('/login.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../login.html'));
+});
+
+app.get('/index.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../index.html'));
 });
 
 // Rota de Login - A URL foi alterada para /api/login
 app.post('/api/login', async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password } = req.body;  // Obter os dados do formulário
 
     try {
         await sql.connect(dbConfig);
-        const result = await sql.query`SELECT * FROM Usuarios WHERE username = ${username} AND password = ${password}`;
+        const result = await sql.query`SELECT * FROM Usuarios WHERE Usuario = ${username} AND Senha = ${password}`;
         
         if (result.recordset.length > 0) {
             res.status(200).send({ success: true, message: 'Login bem-sucedido' });
@@ -42,7 +52,7 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-
+// Rota de Cadastro - Para cadastrar o usuário
 app.post('/api/cadastro', async (req, res) => {
     const { username, password, email, date } = req.body;
 
@@ -64,8 +74,6 @@ app.post('/api/cadastro', async (req, res) => {
         res.status(500).send({ success: false, message: 'Erro ao cadastrar usuário', error: err });
     }
 });
-
-
 
 // Iniciar o servidor
 const PORT = 5000;
