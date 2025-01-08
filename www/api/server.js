@@ -8,35 +8,26 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// Configuração do banco de dados
 const dbConfig = {
     server: 'DESKTOP-DIFT32I\\SQLEXPRESS',
     database: 'CalmClassDB',
     driver: 'msnodesqlv8',  
     options: {
-        trustedConnection: true // Usa autenticação do Windows
+        trustedConnection: true 
     }
 };
 
-// Configuração do express para servir arquivos estáticos (CSS, JS, imagens)
 app.use(express.static(path.join(__dirname, '..', '..', 'www')));
 
-// Serve a página de cadastro
-app.get('/cadastro.html', (req, res) => {
-    res.sendFile(path.join(__dirname, '../cadastro.html'));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..'));  
 });
 
-app.get('/login.html', (req, res) => {
-    res.sendFile(path.join(__dirname, '../login.html'));
-});
 
-app.get('/index.html', (req, res) => {
-    res.sendFile(path.join(__dirname, '../index.html'));
-});
 
-// Rota de Login - A URL foi alterada para /api/login
 app.post('/api/login', async (req, res) => {
-    const { username, password } = req.body;  // Obter os dados do formulário
+    const { username, password } = req.body;  
 
     try {
         await sql.connect(dbConfig);
@@ -52,11 +43,9 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// Rota de Cadastro - Para cadastrar o usuário
 app.post('/api/cadastro', async (req, res) => {
     const { username, password, email, date } = req.body;
 
-    // Verificar se todos os campos obrigatórios foram enviados
     if (!username || !password || !email || !date) {
         return res.status(400).send({ success: false, message: 'Todos os campos são obrigatórios' });
     }
@@ -64,18 +53,16 @@ app.post('/api/cadastro', async (req, res) => {
     try {
         await sql.connect(dbConfig);
         
-        // Inserir os dados no banco sem enviar o ID
         await sql.query`INSERT INTO Usuarios (Usuario, Senha, Email, DataNascimento) 
                         VALUES (${username}, ${password}, ${email}, ${date})`;
 
         res.status(201).send({ success: true, message: 'Usuário cadastrado com sucesso' });
     } catch (err) {
-        console.log(err);  // Log do erro para depuração
+        console.log(err);  
         res.status(500).send({ success: false, message: 'Erro ao cadastrar usuário', error: err });
     }
 });
 
-// Iniciar o servidor
 const PORT = 5000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
